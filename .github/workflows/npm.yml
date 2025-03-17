@@ -1,8 +1,10 @@
 name: Instalar dependências Node.js em Pull Requests
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, edited]
+  push:
+    branches:
+      - main
+
 
 jobs:
   build:
@@ -19,3 +21,6 @@ jobs:
 
       - name: Instalar dependências
         run: npm install
+
+      - name: Build vite
+        run: npm run build
