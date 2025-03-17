@@ -28,3 +28,15 @@ jobs:
 
       - name: Instalar dependências e compilar vite
         run: npm install && npm run build
+
+      - name: Criar artefato node_modules
+        uses: actions/upload-artifact@v4
+        with:
+          name: node_modules
+          path: node_modules
+
+      - name: Criar artefato build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: public
